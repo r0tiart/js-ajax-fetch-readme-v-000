@@ -16,18 +16,19 @@ does take quite a bit of setup. Let's make a simple request of the
 Github repository commits API.
 
 ```js
-let xhr = new XMLHttpRequest()
-xhr.open("GET", "https://api.github.com/repos/jquery/jquery/commits")
-xhr.responseType = 'json'
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.github.com/repos/jquery/jquery/commits');
+xhr.responseType = 'json';
+
 xhr.onload = function() {
   console.log(xhr.response);
-}
+};
 
 xhr.onerror = function() {
-  console.log("Booo");
-}
+  console.log('Booo');
+};
 
-xhr.send()
+xhr.send();
 ```
 
 Sure, it works, but that's a lot of setup to just say "give me some JSON
@@ -65,9 +66,9 @@ streamlines simple resource requests. Let's try that call to the Github
 commits API again.
 
 ```js
-fetch('https://api.github.com/repos/jquery/jquery/commits').
-    then(res => res.json()).
-    then(json => console.log(json))
+fetch('https://api.github.com/repos/jquery/jquery/commits')
+  .then(res => res.json())
+  .then(json => console.log(json));
 ```
 
 ![kimmy wow](http://i.giphy.com/3osxYwZm9WZwnt1Zja.gif)
@@ -99,9 +100,9 @@ argument.
 So, in this code:
 
 ```js
-fetch('https://api.github.com/repos/jquery/jquery/commits').
-    then(res => res.json()).
-    then(json => console.log(json))
+fetch('https://api.github.com/repos/jquery/jquery/commits')
+  .then(res => res.json())
+  .then(json => console.log(json));
 ```
 
 the line `then(res => res.json())` is getting the response `res` from
@@ -160,7 +161,7 @@ account, they still couldn't see your tokens.
 Using the token to [access the API](https://developer.github.com/v3/oauth/#3-use-the-access-token-to-access-the-api) is a simple matter of creating an `Authorization` header with our request. Let's try it out by listing our repos.
 
 ```js
-fetch("https://api.github.com/user/repos").
+fetch('https://api.github.com/user/repos').
   then(res => res.json()).
   then(json => console.log(json))
 ```
@@ -171,12 +172,12 @@ repositories with this API, so let's add our `Authorization` header
 (don't forget to assign your token to `const token`).
 
 ```js
-const token = "YOUR_TOKEN_HERE"
-fetch(`https://api.github.com/user/repos`, {
+const token = 'YOUR_TOKEN_HERE'
+fetch('https://api.github.com/user/repos', {
   headers: {
     Authorization: `token ${token}`
   }
-}).then(res => res.json()).then(json => console.log(json))
+}).then(res => res.json()).then(json => console.log(json));
 ```
 
 We just pass the desired headers as part of a second options argument to
