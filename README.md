@@ -51,7 +51,7 @@ an internet that's evolved far beyond just XML and HTTP.
 
 **Note:** To be fair to XHR, it can handle more protocols than HTTP and
 more formats than XML, but it was never designed with the level of
-interconnectedness we have now in mind. For instance, streaming, a
+interconnectedness of today's programs in mind. For instance, streaming, a
 staple of the modern web, isn't possible when you can only access
 `responseText` after the request has completed.
 
@@ -79,7 +79,7 @@ directly to `fetch`. But what's happening next?
 
 ### Promises and then
 
-In JavaScript, a A `Promise` object represents a value that may not be
+In JavaScript, a `Promise` object represents a value that may not be
 available yet, but will be resolved at some point in the future.
 Essentially, the promise is an object that represents the result of an
 operation, whenever it occurs. This allows us to write more flexible
@@ -104,7 +104,7 @@ fetch('https://api.github.com/repos/jquery/jquery/commits').
     then(json => console.log(json))
 ```
 
-the line `then(res => res.json())` is getting the `Response` from
+the line `then(res => res.json())` is getting the response `res` from
 `fetch` and using the `json` method (more on this in a bit) to turn it
 into JSON. Then it's passing the JSON to the next line, `then(json =>
 console.log(json))`, to be handled by that function.
@@ -125,28 +125,28 @@ saying "give me the `body` of the response parsed as JSON".
 ## Authenticated Fetching
 
 So far, we've been making our requests against the public API functions
-that Github provides, but there are more powerful toys available to us
+that GitHub provides, but there are more powerful toys available to us
 if we can prove to the API who we are when we make requests.
 
 ### OAuth
 
-Github's API uses [OAuth2](https://developer.github.com/v3/oauth/) for
+GitHub's API uses [OAuth2](https://developer.github.com/v3/oauth/) for
 authorization. In a production setting, you would register an
-application with Github and receive an application ID and secret. This
-allows Github to track and monitor API access, and ensure that its users
+application with GitHub and receive an application ID and secret. This
+allows GitHub to track and monitor API access, and ensure that its users
 are protected by only granting authorization through registered apps.
 
 From there, a user would make a request via your app, which would kick
 off the workflow to issue an authorization code that your app would then
 exchange for an access token. The access token is ultimately what your
-application includes in Github API requests to identify and authorize
+application includes in GitHub API requests to identify and authorize
 the user.
 
 Setting up the full OAuth2 authorization code grant workflow is beyond
-the scope of this lesson, but it is described well in the Github
+the scope of this lesson, but it is described well in the GitHub
 [docs](https://developer.github.com/v3/oauth/).
 
-Fortunately for us, Github also allows you to generate your own personal
+Fortunately for us, GitHub also allows you to generate your own personal
 authorization token that we can use to give us authorized access to the
 API. And `fetch` makes it super easy to implement.
 
@@ -185,7 +185,7 @@ We just pass the desired headers as part of a second options argument to
 ![so fetch](http://i.giphy.com/SUgOYsXqmexxe.gif)
 
 **Top-Tip:** Don't ever give out your access token or store it in a
-publicly accessible place or a shared Github repository. We're just using these for learning purposes. In a production setting, user's access tokens would be stored securely in a database and not exposed to other people.
+publicly accessible place or a shared GitHub repository. We're just using these for learning purposes. In a production setting, user's access tokens would be stored securely in a database and not exposed to other people.
 
 ## Caveat Browser
 
