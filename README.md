@@ -1,5 +1,9 @@
 # JavaScript fetch()
 
+## Overview
+
+We'll use  `fetch()` and describe the problems that it helps solve. 
+
 ## Objectives
 
 1. Explain how to use `fetch()` in modern browsers
@@ -32,10 +36,7 @@ xhr.send();
 ```
 
 Sure, it works, but that's a lot of setup to just say "give me some JSON
-from this URL". I don't want to call `XMLHttpRequest` Rube-Goldbergian,
-but I will just leave this gif here.
-
-![rube goldberg](http://i.giphy.com/ovR9WkrzNyt0I.gif)
+from this URL".
 
 I mean, you could just crack an egg and start cooking it, you know?
 Similarly, I'll never understand why we have to call `open` and then call
