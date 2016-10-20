@@ -14,7 +14,7 @@ We'll use  `fetch()` and describe the problems that it helps solve.
 
 Getting remote data in JavaScript has classically required a fair amount of plumbing to make things happen.
 
-It's not that it's *hard* to get data out of `XMLHttpRequest`, but it does take quite a bit of setup. Let's make a simple request of the Github repository commits API.
+It's not that it's *hard* to get data out of `XMLHttpRequest`, but it does take quite a bit of setup. Let's make a simple request of the GitHub repository commits API.
 
 ```js
 let xhr = new XMLHttpRequest();
@@ -46,7 +46,7 @@ Wouldn't it be nice if there were a sleek new API designed from the ground up to
 
 ## fetch()
 
-The `fetch()` function is a new API for fetching resources. It's a global function, which means no creating new XHR objects, and it vastly streamlines simple resource requests. Let's try that call to the Github commits API again.
+The `fetch()` function is a new API for fetching resources. It's a global function, which means no creating new XHR objects, and it vastly streamlines simple resource requests. Let's try that call to the GitHub commits API again.
 
 ```js
 fetch('https://api.github.com/repos/jquery/jquery/commits')
@@ -100,7 +100,7 @@ Setting up the full OAuth2 authorization code grant workflow is beyond the scope
 
 Fortunately for us, GitHub also allows you to generate your own personal authorization token that we can use to give us authorized access to the API. And `fetch` makes it super easy to implement.
 
-To start, go to https://github.com/settings/tokens and click "Generate new token." Name it "Learn.co" and check `repo` scope. Once you generate the token, make sure to copy and paste it somewhere, because once you leave that page, you won't be able to see it again. This is for your security - even if someone were to gain access to this page on your account, they still couldn't see your tokens.
+To start, go to [https://github.com/settings/tokens](https://github.com/settings/tokens) and click "Generate new token." Name it "Learn.co" and check `repo` scope. Once you generate the token, make sure to copy and paste it somewhere, because once you leave that page, you won't be able to see it again. This is for your security — even if someone were to gain access to this page on your account, they still couldn't see your tokens.
 
 Using the token to [access the API](https://developer.github.com/v3/oauth/#3-use-the-access-token-to-access-the-api) is a simple matter of creating an `Authorization` header with our request. Let's try it out by listing our repos.
 
@@ -125,7 +125,7 @@ We just pass the desired headers as part of a second options argument to `fetch`
 
 ![so fetch](http://i.giphy.com/SUgOYsXqmexxe.gif)
 
-**Top-Tip:** Don't ever give out your access token or store it in a publicly accessible place or a shared GitHub repository. We're just using these for learning purposes. In a production setting, user's access tokens would be stored securely in a database and not exposed to other people.
+**Top-Tip:** Don't ever give out your access token or store it in a publicly accessible place or a shared GitHub repository. We're just using these for learning purposes. In a production setting, users' access tokens would be stored securely in a database and not exposed to other people.
 
 ## Caveat Browser
 
@@ -137,3 +137,5 @@ Keep in mind that, while it is increasing, [browser support](http://caniuse.com/
 
 - [MDN Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - [HTML5 Rocks Promises](http://www.html5rocks.com/en/tutorials/es6/promises/)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/javascript-fetch'>Getting Data from the Web</a> on Learn.co and start learning to code for free.</p>
